@@ -3,6 +3,13 @@ require 'lib/function/function.php';
 
 // bikin query
 $community = query("SELECT * FROM community");
+
+// tombol cari ditekan
+if( isset($_POST["cari"]) ) {
+    $community = cari($_POST["keyword"]);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +24,12 @@ $community = query("SELECT * FROM community");
         <div class="nama-judul">
             <h3 class="nama">DATA COMMUNITY</h3>
         </div>
+        <br>
+        <form method="post" action="">
+            <input type="text" name="keyword" size="40" autofocus autocomplete="off" placeholder="Masukan pencarian..">
+            <button type="submit" name="cari">Cari</button>
+        </form>
+        <br>
     <!-- tampilan data -->
     <div class="container">
         <div class="table">

@@ -65,4 +65,19 @@ function ubah($data) {
     return mysqli_affected_rows($conn);
 }
 
+// cari data di database
+function cari($keyword) {
+    $query = "SELECT * FROM community
+    WHERE
+    nama LIKE '%$keyword%' OR
+    alamat LIKE '%$keyword%' OR
+    umur LIKE '%$keyword%' OR
+    jabatan LIKE '%$keyword%' 
+    ";
+
+    return query($query);
+}
+
+
+
 ?>
